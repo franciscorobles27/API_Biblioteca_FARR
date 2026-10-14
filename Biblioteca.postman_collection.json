@@ -1,0 +1,191 @@
+{
+  "info": {
+    "name": "API Biblioteca - Evidencias",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Colección de pruebas de Biblioteca. Asegurar datos existentes. Datos personales ficticios excepto el nombre solicitado."
+  },
+  "item": [
+    {
+      "name": "GET libros",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:1500/libros",
+        "header": []
+      }
+    },
+    {
+      "name": "GET libro por ISBN",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:1500/libros/9786073151221",
+        "header": []
+      }
+    },
+    {
+      "name": "POST crear libro",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:1500/libros",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"isbn\": 9786073151221,\n  \"titulo\": \"El Principito\",\n  \"autor\": \"Antoine de Saint-Exupéry\",\n  \"añoPublicacion\": \"1943\",\n  \"numejemplares\": 5\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "PUT actualizar libro",
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:1500/libros/9786073151221",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"isbn\": 9786073151221,\n  \"titulo\": \"El Principito\",\n  \"autor\": \"Antoine de Saint-Exupéry\",\n  \"añoPublicacion\": \"1943\",\n  \"numejemplares\": 5\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "GET buscar por autor",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:1500/libros/buscar?autor=Antoine",
+        "header": []
+      }
+    },
+    {
+      "name": "POST libro temporal",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:1500/libros",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"isbn\": 9781234567890,\n  \"titulo\": \"Libro de prueba\",\n  \"autor\": \"Autor de prueba\",\n  \"añoPublicacion\": \"2026\",\n  \"numejemplares\": 2\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "DELETE libro temporal",
+      "request": {
+        "method": "DELETE",
+        "url": "http://localhost:1500/libros/9781234567890",
+        "header": []
+      }
+    },
+    {
+      "name": "GET libro eliminado (404)",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:1500/libros/9781234567890",
+        "header": []
+      }
+    },
+    {
+      "name": "GET usuarios",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:1500/usuarios",
+        "header": []
+      }
+    },
+    {
+      "name": "POST usuario de prueba",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:1500/usuarios",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Francisco\",\n  \"apellidos\": \"Robles\",\n  \"correo\": \"francisco.prueba@example.com\",\n  \"contrasena\": \"ClavePrueba123!\",\n  \"rol\": \"SOCIO\",\n  \"estado\": \"ACTIVO\",\n  \"telefono\": \"5551234567\",\n  \"direccion\": \"Calle Principal 123\",\n  \"fechaNacimiento\": \"2002-05-15\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "GET usuario por ID",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:1500/usuarios/1",
+        "header": []
+      }
+    },
+    {
+      "name": "POST préstamo",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:1500/prestamos",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"isbn\": 9786073151221,\n  \"usuarioId\": 1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "GET préstamos activos",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:1500/prestamos/activos",
+        "header": []
+      }
+    },
+    {
+      "name": "PUT devolver préstamo",
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:1500/prestamos/1/devolver",
+        "header": []
+      }
+    }
+  ]
+}

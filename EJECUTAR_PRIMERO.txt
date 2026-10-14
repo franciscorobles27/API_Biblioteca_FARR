@@ -1,0 +1,9 @@
+API Biblioteca - Java 21, Spring Boot, MySQL
+1. Crear base de datos libreria si no existe.
+2. Confirmar que libros.isbn NO tenga AUTO_INCREMENT si vienes de una version antigua.
+3. Abrir PowerShell dentro de la carpeta con pom.xml.
+4. Ejecutar: $env:DB_PASSWORD = Read-Host "Contraseña de MySQL"
+5. Ejecutar: .\mvnw.cmd spring-boot:run
+6. Probar http://localhost:1500/libros
+7. Importar Biblioteca.postman_collection.json en Postman.
+No subir contraseñas reales a GitHub.
